@@ -12,7 +12,7 @@ This is an application that allows you to create and save notes in an organized 
 * Node.js/Express
 
 ## Website
-https://jhlanger.github.io/weather/
+https://secure-inlet-41711.herokuapp.com/
 
 ## Contribution
 Made by Jonathon Langerman
