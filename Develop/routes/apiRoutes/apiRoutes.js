@@ -1,3 +1,8 @@
+
+
+
+
+
 const fs = require('fs');
 const path = require('path');
 const router = require('express').Router();
@@ -9,6 +14,8 @@ router.get('/notes', (req,res) => {
 })
 
 router.post('/notes', (req,res) => {
+  
+  console.log(req.body);
   req.body.id = database.length.toString();
   const note = createNewNote(req.body, database);
   res.json(database);
@@ -26,11 +33,12 @@ router.put('/notes/:id', (req,res) => {
 
 function createNewNote(body, notes) {
   const note = body;
+  //console.log(note);
   notes.push(note);
   console.log(notes);
   fs.writeFileSync(
     path.join(__dirname, '../../db/db.json'),
-    JSON.stringify({database}, null, 2)
+    JSON.stringify({database:notes}, null, 2)
   );
   return note;
 }
