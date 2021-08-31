@@ -10,7 +10,7 @@ router.get('/notes', (req,res) => {
 
 router.post('/notes', (req,res) => {
   req.body.id = database.length.toString();
-  const note = addNewNote(req.body, database);
+  const note = createNewNote(req.body, database);
   res.json(database);
 })
 
@@ -24,7 +24,7 @@ router.put('/notes/:id', (req,res) => {
 
 
 
-function addNewNote(body, notes) {
+function createNewNote(body, notes) {
   const note = body;
   notes.push(note);
   console.log(notes);
